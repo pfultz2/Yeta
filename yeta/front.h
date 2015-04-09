@@ -17,7 +17,7 @@ struct front
 {};
 
 template<class Iterable>
-struct front<Iterable, YETA_VOID(typename Iterable::type::front)>
+struct front<Iterable, YETA_VOID(Iterable::type::front)>
 : Iterable::type::front
 {};
 

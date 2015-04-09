@@ -27,9 +27,8 @@ YETA_USING_EVAL(count_if_fun, if_<apply<Fun, Val>,
 }
 
 template<class Iterable, class Fun>
-struct count_if
-: fold<Iterable, yeta::size_t<0>, bind_back<strict<quote<detail::count_if_fun>>, Fun>>
-{};
+YETA_USING(count_if,
+ fold<Iterable, yeta::size_t<0>, bind_back<strict<quote<detail::count_if_fun>>, Fun>>)
 
 }
 

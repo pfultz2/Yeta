@@ -12,7 +12,7 @@
 
 namespace yeta { namespace detail {
 
-template<class, T, class U, class... Ts>
+template<class T, class U, class... Ts>
 struct is_same_impl
 : false_type
 {};

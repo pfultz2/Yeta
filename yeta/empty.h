@@ -15,7 +15,7 @@
 namespace yeta {
 
 template<class Iterable>
-YETA_USING(empty, is_same<Iterable, pop_front<Iterable>>);
+YETA_USING(empty, yeta::is_same<Iterable, pop_front<Iterable>>);
 
 }
 

@@ -14,7 +14,7 @@
 namespace yeta {
 
 template<bool B>
-YETA_USING(bool_, B);
+YETA_USING(bool_, yeta::integral_constant<bool, B>);
 
 typedef bool_<true> true_type;
 typedef bool_<false> false_type;

@@ -16,9 +16,9 @@ template<class Iterable, class X, class=void>
 struct push_front
 {};
 
-template<class Iterablem class X>
-struct push_front<Iterable, X, YETA_VOID(typename Iterable::type::push_front<typename X::type>)>
-: Iterable::type::push_front<typename X::type>
+template<class Iterable, class X>
+struct push_front<Iterable, X, YETA_VOID(Iterable::type::template push_front<typename X::type>)>
+: Iterable::type::template push_front<typename X::type>
 {};
 
 }

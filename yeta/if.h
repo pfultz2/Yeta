@@ -10,6 +10,7 @@
 
 #include <type_traits>
 #include <yeta/id.h>
+#include <yeta/or.h>
 #include <yeta/eval.h>
 
 namespace yeta {
@@ -42,7 +43,7 @@ struct if_c_clause
 template<class C, class BoxT>
 struct if_clause
 {
-    template<class C1, class T1, class E1 = no_else>
+    template<class C1, class T1, class E = no_else>
     struct else_if: lazy_eval<if_<C, BoxT, if_<C, T1, E>>> {};
 
     template<class C1, class T1>
@@ -51,13 +52,13 @@ struct if_clause
     {};
 
     template<class E>
-    YETA_USING(else_, if_<C, T, E>);
+    YETA_USING_EVAL(else_, if_<C, BoxT, id<E>>);
 };
 
 }
 
 template<bool B, class T, class E>
-struct if_c<B, T, E>
+struct if_c
 : std::conditional<B, T, E> 
 {};
 

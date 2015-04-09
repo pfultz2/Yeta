@@ -1,25 +1,20 @@
 /*=============================================================================
     Copyright (c) 2015 Paul Fultz II
-    clear.h
+    int.h
     Distributed under the Boost Software License, Version 1.0. (See accompanying
     file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 ==============================================================================*/
 
-#ifndef YETA_GUARD_CLEAR_H
-#define YETA_GUARD_CLEAR_H
+#ifndef YETA_GUARD_INT_H
+#define YETA_GUARD_INT_H
 
-#include <yeta/detail/always_void.h>
+#include <yeta/integral_constant.h>
+#include <yeta/detail/using.h>
 
 namespace yeta {
 
-template<class Iterable, class=void>
-struct clear
-{};
-
-template<class Iterable>
-struct clear<Iterable, YETA_VOID(Iterable::type::clear)>
-: Iterable::type::clear
-{};
+template<int N>
+YETA_USING(int_, yeta::integral_constant<int, N>);
 
 }
 

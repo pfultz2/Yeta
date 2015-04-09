@@ -12,12 +12,12 @@
 
 namespace yeta {
 
-template<template <class...> class C, class... Args>
+template<class F, class... Args>
 struct bind_front
 {
     typedef bind_front type;
     template<class... Ts>
-    YETA_USING(apply, C<Args..., Ts...>);
+    YETA_USING(apply, F::template apply<Args..., Ts...>);
 };
 
 }

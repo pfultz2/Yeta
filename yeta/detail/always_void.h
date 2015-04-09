@@ -17,6 +17,6 @@ struct always_void
 };
 }}
 
-#define YETA_VOID(...) typename yeta::detail::always_void<__VA_ARGS__>::type
+#define YETA_VOID(...) typename yeta::detail::always_void<typename __VA_ARGS__>::type
 
 #endif

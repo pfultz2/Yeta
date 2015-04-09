@@ -15,28 +15,28 @@ namespace yeta {
 
 namespace detail {
 template <typename ...T>
-false_ or_impl(T*...);
-true_ or_impl(...);
+false_type or_impl(T*...);
+true_type or_impl(...);
 }
 
 template <bool... Bs>
 struct or_c
-: true_
+: true_type
 {};
 
 template <>
 struct or_c<false, false>
-: false_
+: false_type
 {};
 
 template <>
 struct or_c<false>
-: false_
+: false_type
 {};
 
 template <>
 struct or_c<>
-: false_
+: false_type
 {};
 
 template <bool ...Bs>
@@ -55,7 +55,7 @@ struct or_
 
 template <class F1, class F2>
 struct or_<F1, F2>
-: lazy_eval<std::conditional<F1::type::value, true_, F2>>
+: lazy_eval<std::conditional<F1::type::value, true_type, F2>>
 {};
 
 }

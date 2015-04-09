@@ -17,7 +17,9 @@ struct quote
 {
     typedef quote type;
     template<class... Ts>
-    YETA_USING(apply, C<Ts...>);
+    struct apply
+    : C<Ts...>
+    {};
 };
 
 }

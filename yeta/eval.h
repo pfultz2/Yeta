@@ -9,6 +9,7 @@
 #define YETA_GUARD_EVAL_H
 
 #include <yeta/detail/using.h>
+#include <yeta/detail/always_void.h>
 
 namespace yeta {
 
