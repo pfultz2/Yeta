@@ -13,8 +13,7 @@
 namespace yeta {
 
 template<class Iterable, class=void>
-struct clear
-{};
+struct clear;
 
 template<class Iterable>
 struct clear<Iterable, YETA_VOID(Iterable::type::clear)>

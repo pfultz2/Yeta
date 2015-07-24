@@ -56,6 +56,9 @@ struct list<>
         typedef list<> type;
     };
 
+    struct front
+    {};
+
     struct pop_front
     {
         typedef list<> type;

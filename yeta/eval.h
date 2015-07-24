@@ -10,6 +10,8 @@
 
 #include <yeta/detail/using.h>
 #include <yeta/detail/always_void.h>
+#include <yeta/detail/requires.h>
+#include <type_traits>
 
 namespace yeta {
 
@@ -22,11 +24,11 @@ YETA_USING(eval, F::type);
 
 // Unboxed evaluation
 template<class F, class=void>
-struct lazy_eval
-{};
+struct lazy_eval;
 
 template<class F>
-struct lazy_eval<F, YETA_VOID(F::type)>
+struct lazy_eval<F, YETA_REQUIRES(std::is_class<typename F::type>::value)>
+// struct lazy_eval<F, YETA_VOID(F::type)>
 : F::type
 {};
 

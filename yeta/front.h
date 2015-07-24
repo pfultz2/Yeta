@@ -19,7 +19,9 @@ struct front
 template<class Iterable>
 struct front<Iterable, YETA_VOID(Iterable::type::front)>
 : Iterable::type::front
-{};
+{
+    typedef void yeta_front_tag;
+};
 
 }
 

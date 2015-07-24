@@ -17,11 +17,10 @@ namespace yeta {
 namespace detail {
 
 template<class F, class Args, class=void>
-struct strict_apply_impl
-{};
+struct strict_apply_impl;
 
 template<class F, class... Args>
-struct strict_apply_impl<F, always_void<Args...>, YETA_VOID(apply<F, typename Args::type...>)>
+struct strict_apply_impl<F, yeta::detail::always_void<Args...>, YETA_VOID(yeta::apply<F, typename Args::type...>)>
 : apply<F, typename Args::type...>
 {};
 
@@ -33,7 +32,7 @@ struct strict
     typedef strict type;
     template<class... Ts>
     struct apply
-    : detail::strict_apply_impl<F, detail::always_void<Ts...>>
+    : detail::strict_apply_impl<MetafunctionClass, detail::always_void<Ts...>>
     {};
 };
 
